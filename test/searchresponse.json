@@ -1,0 +1,421 @@
+{
+  "hits": {
+    "totalHits": 26,
+    "hits": [
+      {
+        "id": "91eb1e4a-0da4-4eef-bdbd-86070c4a6019",
+        "versions": [
+          {
+            "id": 1,
+            "properties": {
+              "Headline": [
+                "Scooters"
+              ],
+              "uuid": [
+                "91eb1e4a-0da4-4eef-bdbd-86070c4a6019"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "976db287-aad4-4e4e-bf3e-d19cb53eeeda",
+        "versions": [
+          {
+            "id": 1,
+            "properties": {
+              "Headline": [
+                "Scooters causing mayhem"
+              ],
+              "uuid": [
+                "976db287-aad4-4e4e-bf3e-d19cb53eeeda"
+              ],
+              "ConceptRelations": []
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "ea9e64a4-38d5-51a1-bd46-fce4ac15145e",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "uuid": [
+                "ea9e64a4-38d5-51a1-bd46-fce4ac15145e"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "3623bf19-de42-55cf-857b-2603d20b07ba",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "uuid": [
+                "3623bf19-de42-55cf-857b-2603d20b07ba"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "ac91d1e9-cd20-56c0-a4f5-c6b94acc7328",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "uuid": [
+                "ac91d1e9-cd20-56c0-a4f5-c6b94acc7328"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "fbb7462a-effd-49ee-a881-3ed80a4748b2",
+        "versions": [
+          {
+            "id": 1,
+            "properties": {
+              "Headline": [
+                "Scooters causing mayhem"
+              ],
+              "uuid": [
+                "fbb7462a-effd-49ee-a881-3ed80a4748b2"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "99e653f0-5383-4abe-bfb7-bd9a00d656c6",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "Headline": [
+                "Scooters causing mayhem"
+              ],
+              "uuid": [
+                "99e653f0-5383-4abe-bfb7-bd9a00d656c6"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "23542b0d-5dff-50c8-9414-3638f33df570",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "uuid": [
+                "23542b0d-5dff-50c8-9414-3638f33df570"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "ad11e408-6833-47f3-8d27-8d3b3c969f0b",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "Headline": [
+                "Scooters cause mayhem and chaos all over downtown"
+              ],
+              "uuid": [
+                "ad11e408-6833-47f3-8d27-8d3b3c969f0b"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "1879910d-d65d-4cd0-9f32-824ba1791ac3",
+        "versions": [
+          {
+            "id": 6,
+            "properties": {
+              "Headline": [
+                "Scooters cause mayhem and chaos all over downtown"
+              ],
+              "uuid": [
+                "1879910d-d65d-4cd0-9f32-824ba1791ac3"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "bd121fb8-addb-4121-8455-008229bf1dae",
+        "versions": [
+          {
+            "id": 17,
+            "properties": {
+              "Headline": [
+                "Scooters cause chaos and mayhem"
+              ],
+              "uuid": [
+                "bd121fb8-addb-4121-8455-008229bf1dae"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                },
+                {
+                  "Headline": [
+                    "Transport"
+                  ],
+                  "uuid": [
+                    "38fa5001-476f-47a9-b56c-110144cd6702"
+                  ]
+                },
+                {
+                  "Headline": [
+                    "Scooters"
+                  ],
+                  "uuid": [
+                    "91eb1e4a-0da4-4eef-bdbd-86070c4a6019"
+                  ]
+                },
+                {
+                  "Headline": [
+                    "Zinnia"
+                  ],
+                  "uuid": [
+                    "7032ea9b-466e-4772-b3a2-de043bf0c75e"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "ae59d8c4-b3ea-43d1-b853-628b4136af43",
+        "versions": [
+          {
+            "id": 6,
+            "properties": {
+              "Headline": [
+                "This headline goes in the headline box "
+              ],
+              "uuid": [
+                "ae59d8c4-b3ea-43d1-b853-628b4136af43"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                },
+                {
+                  "Headline": [
+                    "Greenville County, South Carolina"
+                  ],
+                  "uuid": [
+                    "a49b3b03-2e49-4a23-97df-71eb0a9b2b11"
+                  ]
+                },
+                {
+                  "Headline": [
+                    "Greenville, South Carolina"
+                  ],
+                  "uuid": [
+                    "1cf23389-4284-4fb0-8e02-cf5e1c12aa95"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "4df2a434-2a37-4877-9c58-44928075d1c1",
+        "versions": [
+          {
+            "id": 2,
+            "properties": {
+              "Headline": [
+                "This headline goes in the headline box "
+              ],
+              "uuid": [
+                "4df2a434-2a37-4877-9c58-44928075d1c1"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "4e6be524-c3ea-431d-9621-253d4d936d5c",
+        "versions": [
+          {
+            "id": 3,
+            "properties": {
+              "Headline": [
+                "Electric scooters cause chaos and mayhem"
+              ],
+              "uuid": [
+                "4e6be524-c3ea-431d-9621-253d4d936d5c"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      },
+      {
+        "id": "2a2180b4-e551-438e-9329-0917a4edfb19",
+        "versions": [
+          {
+            "id": 1,
+            "properties": {
+              "Headline": [
+                "Electric scooters cause chaos and mayhem"
+              ],
+              "uuid": [
+                "2a2180b4-e551-438e-9329-0917a4edfb19"
+              ],
+              "ConceptRelations": [
+                {
+                  "Headline": [
+                    "Ronnie J. Willis"
+                  ],
+                  "uuid": [
+                    "af7adf45-4506-4e4a-8841-b3434cef462f"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      }
+    ],
+    "includedHits": 15
+  },
+  "facet": {
+    "fields": []
+  },
+  "stats": {
+    "duration": 49
+  },
+  "highlight": {
+    "3623bf19-de42-55cf-857b-2603d20b07ba": {},
+    "ac91d1e9-cd20-56c0-a4f5-c6b94acc7328": {},
+    "4e6be524-c3ea-431d-9621-253d4d936d5c": {
+      "Headline": [
+        "Electric <em>scooters</em> cause chaos and mayhem"
+      ]
+    },
+    "976db287-aad4-4e4e-bf3e-d19cb53eeeda": {
+      "Headline": [
+        "<em>Scooters</em> causing mayhem"
+      ]
+    },
+    "ad11e408-6833-47f3-8d27-8d3b3c969f0b": {
+      "Headline": [
+        "<em>Scooters</em> cause mayhem and chaos all over downtown"
+      ]
+    },
+    "ea9e64a4-38d5-51a1-bd46-fce4ac15145e": {},
+    "99e653f0-5383-4abe-bfb7-bd9a00d656c6": {
+      "Headline": [
+        "<em>Scooters</em> causing mayhem"
+      ]
+    },
+    "4df2a434-2a37-4877-9c58-44928075d1c1": {},
+    "1879910d-d65d-4cd0-9f32-824ba1791ac3": {
+      "Headline": [
+        "<em>Scooters</em> cause mayhem and chaos all over downtown"
+      ]
+    },
+    "23542b0d-5dff-50c8-9414-3638f33df570": {},
+    "91eb1e4a-0da4-4eef-bdbd-86070c4a6019": {
+      "Headline": [
+        "<em>Scooters</em>"
+      ]
+    },
+    "2a2180b4-e551-438e-9329-0917a4edfb19": {
+      "Headline": [
+        "Electric <em>scooters</em> cause chaos and mayhem"
+      ]
+    },
+    "fbb7462a-effd-49ee-a881-3ed80a4748b2": {
+      "Headline": [
+        "<em>Scooters</em> causing mayhem"
+      ]
+    },
+    "bd121fb8-addb-4121-8455-008229bf1dae": {
+      "Headline": [
+        "<em>Scooters</em> cause chaos and mayhem"
+      ]
+    },
+    "ae59d8c4-b3ea-43d1-b853-628b4136af43": {}
+  }
+}

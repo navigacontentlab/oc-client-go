@@ -1,0 +1,43 @@
+{
+  "hits": {
+    "totalHits": 1,
+    "hits": [
+      {
+        "id": "49478a1c-ab79-5cef-bb78-4f659e287387",
+        "versions": [
+          {
+            "id": 3,
+            "properties": {
+              "Status": [
+                "canceled"
+              ],
+              "Pubdate": [
+                "2020-08-26T10:48:17Z"
+              ],
+              "Headline": [
+                "Filmrecension: Stämningsfullt om psykos"
+              ],
+              "ArticleMetaImageUuids": [
+                "24db3152-7479-58ed-9d87-c0b364ee68e9",
+                "586e7978-0520-5353-b397-c410246c2a41"
+              ],
+              "uuid": [
+                "49478a1c-ab79-5cef-bb78-4f659e287387"
+              ]
+            }
+          }
+        ],
+        "noVersions": 1
+      }
+    ],
+    "includedHits": 1
+  },
+  "facet": {
+    "fields": []
+  },
+  "stats": {
+    "duration": 5,
+    "hits": null
+  },
+  "highlight": null
+}

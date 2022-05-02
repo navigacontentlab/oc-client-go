@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<newsItem conformance="power" guid="1c5c8a53-8e31-5a4a-91a2-bcaf3d460a6e" standard="NewsML-G2" standardversion="2.26" version="1" 
+    xmlns="http://iptc.org/std/nar/2006-10-01/">
+    <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_30.xml"/>
+    <catalogRef href="http://infomaker.se/spec/catalog/catalog.infomaker.g2.1_0.xml"/>
+    <itemMeta>
+        <itemClass qcode="ninat:picture"/>
+        <versionCreated>2019-08-08T14:14:22Z</versionCreated>
+        <firstCreated>2019-08-08T14:14:22Z</firstCreated>
+        <provider/>
+        <pubStatus qcode="imext:draft"/>
+        <fileName>sample.jpeg</fileName>
+    </itemMeta>
+    <contentMeta>
+        <contentCreated>2019-08-08T14:14:22Z</contentCreated>
+        <contentModified>2019-08-08T14:14:22Z</contentModified>
+        <metadata xmlns="http://www.infomaker.se/newsml/1.0">
+            <object id="123457" type="x-im/image">
+                <data>
+                    <width>640</width>
+                    <height>427</height>
+                    <objectName>sample.jpeg</objectName>
+                    <mimeType>image/jpeg</mimeType>
+                </data>
+            </object>
+        </metadata>
+    </contentMeta>
+</newsItem>

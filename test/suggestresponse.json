@@ -1,0 +1,42 @@
+{
+  "terms": null,
+  "facetFields": [
+    {
+      "name": "contenttype",
+      "terms": [
+        {
+          "name": "Article",
+          "frequency": 3704712
+        },
+        {
+          "name": "Image",
+          "frequency": 3420565
+        },
+        {
+          "name": "Assignment",
+          "frequency": 203104
+        },
+        {
+          "name": "Planning",
+          "frequency": 190488
+        },
+        {
+          "name": "Concept",
+          "frequency": 114278
+        },
+        {
+          "name": "List",
+          "frequency": 19357
+        },
+        {
+          "name": "Package",
+          "frequency": 12853
+        },
+        {
+          "name": "Template",
+          "frequency": 897
+        }
+      ]
+    }
+  ]
+}

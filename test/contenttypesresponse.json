@@ -1,0 +1,984 @@
+{
+  "contentTypes": [
+    {
+      "name": "Article",
+      "properties": [
+        {
+          "name": "checksum",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Concatenated md5 checksums of all the files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "contenttype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "contenttype specifies the type of object.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "created is the date and time at which the object was created in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "deleted",
+          "type": "BOOLEAN",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Flag indicating whether the object is deleted.",
+          "suggest": false,
+          "indexFieldType": "BOOLEAN"
+        },
+        {
+          "name": "group",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "group divides objects into certain object groups. Group is used together with permission configuration for authorization of objects.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata",
+          "type": "STREAM",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "URLs referring to the metadata files of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata_mimetype",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetypes of the metadata files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "mimetype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetype of the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "organisation",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "organisation",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "preview",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the preview file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "primary",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "source",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Client system identifier. It can be any string and describes the source system the object came from.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "thumbnail",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the thumbnail file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "unit",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "updated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "updated is the date and time at which the object was updated in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "user",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "user",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "uuid",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "uuid identifies the object. It is preferably a UUID, but it can be any string.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Version of the object.",
+          "suggest": false,
+          "indexFieldType": "INTEGER"
+        },
+        {
+          "name": "ArticleBody",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": true,
+          "readOnly": false,
+          "description": "Body text of the article.",
+          "suggest": false,
+          "indexFieldType": "TEXT"
+        },
+        {
+          "name": "ArticleCaption",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "List of Article Captions",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ArticleLeadin",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": null,
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ArticleMetaNewsValue",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": true,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Article newsValue",
+          "suggest": true,
+          "indexFieldType": "STRING_LOWERCASE"
+        },
+        {
+          "name": "ArticleUuids",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Uuids from related Articles",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ConceptRelations",
+          "type": "Concept",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Article concepts used by article",
+          "suggest": null,
+          "indexFieldType": null
+        },
+        {
+          "name": "ConceptUuids",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Concepts used by article",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ObjectCreated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Created date from metadata",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "ObjectCreator",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Creator of the object",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Assignment",
+      "properties": [
+        {
+          "name": "checksum",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Concatenated md5 checksums of all the files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "contenttype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "contenttype specifies the type of object.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "created is the date and time at which the object was created in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "deleted",
+          "type": "BOOLEAN",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Flag indicating whether the object is deleted.",
+          "suggest": false,
+          "indexFieldType": "BOOLEAN"
+        },
+        {
+          "name": "group",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "group divides objects into certain object groups. Group is used together with permission configuration for authorization of objects.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata",
+          "type": "STREAM",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "URLs referring to the metadata files of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata_mimetype",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetypes of the metadata files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "mimetype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetype of the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "organisation",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "organisation",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "preview",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the preview file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "primary",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "source",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Client system identifier. It can be any string and describes the source system the object came from.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "thumbnail",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the thumbnail file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "unit",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "updated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "updated is the date and time at which the object was updated in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "user",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "user",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "uuid",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "uuid identifies the object. It is preferably a UUID, but it can be any string.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Version of the object.",
+          "suggest": false,
+          "indexFieldType": "INTEGER"
+        }
+      ]
+    },
+    {
+      "name": "Concept",
+      "properties": [
+        {
+          "name": "checksum",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Concatenated md5 checksums of all the files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "contenttype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "contenttype specifies the type of object.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "created is the date and time at which the object was created in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "deleted",
+          "type": "BOOLEAN",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Flag indicating whether the object is deleted.",
+          "suggest": false,
+          "indexFieldType": "BOOLEAN"
+        },
+        {
+          "name": "group",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "group divides objects into certain object groups. Group is used together with permission configuration for authorization of objects.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata",
+          "type": "STREAM",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "URLs referring to the metadata files of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata_mimetype",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetypes of the metadata files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "mimetype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetype of the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "organisation",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "organisation",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "preview",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the preview file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "primary",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "source",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Client system identifier. It can be any string and describes the source system the object came from.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "thumbnail",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the thumbnail file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "unit",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "updated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "updated is the date and time at which the object was updated in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "user",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "user",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "uuid",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "uuid identifies the object. It is preferably a UUID, but it can be any string.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Version of the object.",
+          "suggest": false,
+          "indexFieldType": "INTEGER"
+        },
+        {
+          "name": "ConceptArticleRelations",
+          "type": "Article",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Articles containing this concept",
+          "suggest": null,
+          "indexFieldType": null
+        },
+        {
+          "name": "ConceptAssociatedWith",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": true,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE...",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ConceptAssociatedWithMeRelations",
+          "type": "Concept",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Relation for concepts that have associatedWith set to current uuid similar to narrower",
+          "suggest": null,
+          "indexFieldType": null
+        },
+        {
+          "name": "ConceptAssociatedWithRelations",
+          "type": "Concept",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Relation for concept uuids that are set as associatedWith similar to broader",
+          "suggest": null,
+          "indexFieldType": null
+        },
+        {
+          "name": "ConceptAssociatedWithType",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": true,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE...",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Event",
+      "properties": [
+        {
+          "name": "ConceptTopics",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": true,
+          "readOnly": false,
+          "description": "Event topic concepts",
+          "suggest": true,
+          "indexFieldType": "TEXT"
+        },
+        {
+          "name": "ConceptUuids",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Concept uuids on the object",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "EventEndDate",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "End date of event",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        }
+      ]
+    },
+    {
+      "name": "Graphic",
+      "properties": [
+        {
+          "name": "ObjectCreated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Created date from metadata",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "ObjectCreator",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Creator of the object",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ObjectUpdated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Updated date from metadata",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "ObjectUpdater",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "Updater of the object",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "properties": [
+        {
+          "name": "checksum",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Concatenated md5 checksums of all the files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "contenttype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "contenttype specifies the type of object.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "created is the date and time at which the object was created in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "deleted",
+          "type": "BOOLEAN",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Flag indicating whether the object is deleted.",
+          "suggest": false,
+          "indexFieldType": "BOOLEAN"
+        },
+        {
+          "name": "group",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "group divides objects into certain object groups. Group is used together with permission configuration for authorization of objects.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata",
+          "type": "STREAM",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "URLs referring to the metadata files of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "metadata_mimetype",
+          "type": "STRING",
+          "multiValued": true,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetypes of the metadata files that are part of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "mimetype",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Mimetype of the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "organisation",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "organisation",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "preview",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the preview file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "primary",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the primary file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "source",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Client system identifier. It can be any string and describes the source system the object came from.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "thumbnail",
+          "type": "STREAM",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "A URL referring to the thumbnail file of the object.",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "unit",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "unit",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "updated",
+          "type": "DATE",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "updated is the date and time at which the object was updated in Open Content.",
+          "suggest": false,
+          "indexFieldType": "DATE"
+        },
+        {
+          "name": "user",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "user",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "uuid",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "uuid identifies the object. It is preferably a UUID, but it can be any string.",
+          "suggest": true,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": true,
+          "description": "Version of the object.",
+          "suggest": false,
+          "indexFieldType": "INTEGER"
+        },
+        {
+          "name": "ImageCopyright",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Copyright",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        },
+        {
+          "name": "ImageCredit",
+          "type": "STRING",
+          "multiValued": false,
+          "searchable": false,
+          "readOnly": false,
+          "description": "DO NOT DELETE OR CHANGE... Credit",
+          "suggest": false,
+          "indexFieldType": "STRING"
+        }
+      ]
+    }
+  ]
+}
