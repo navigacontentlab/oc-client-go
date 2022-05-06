@@ -77,9 +77,12 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 		defer pipeIn.Close()
 
 		fields := mimeFields{
-			"id":     req.UUID,
 			"source": req.Source,
 			"batch":  strconv.FormatBool(req.Batch),
+		}
+
+		if req.UUID != "" {
+			fields["id"] = req.UUID
 		}
 
 		for field, file := range req.Files {
@@ -145,8 +148,6 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 
 		if c.auth != nil {
 			c.auth(r)
-		} else {
-			errChan <- fmt.Errorf("no authorization provided")
 		}
 
 		resp, err := c.httpClient.Do(r)
