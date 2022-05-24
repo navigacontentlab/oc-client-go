@@ -225,18 +225,8 @@ func (c *Client) getXML(
 	return nil
 }
 
-func safePath(segments ...string) string {
-	var path string
-
-	for i, s := range segments {
-		if i > 0 {
-			path += "/"
-		}
-
-		path += url.PathEscape(s)
-	}
-
-	return path
+func joinPath(segments ...string) string {
+	return strings.Join(segments, "/")
 }
 
 func discardAndClose(rc io.ReadCloser) error {

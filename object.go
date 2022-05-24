@@ -25,7 +25,7 @@ func (c *Client) GetObject(ctx context.Context, uuid string, version int64) (*Ob
 		q.Set("version", strconv.FormatInt(version, 10))
 	}
 
-	res, err := c.fetch(ctx, safePath("objects", uuid), q)
+	res, err := c.fetch(ctx, joinPath("objects", uuid), q)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +78,7 @@ type UndeleteOptions struct {
 }
 
 func (c *Client) Undelete(ctx context.Context, uuid string, options *UndeleteOptions) error {
-	reqURL := c.url(safePath("objects", uuid, "undelete"), nil)
+	reqURL := c.url(joinPath("objects", uuid, "undelete"), nil)
 
 	req, err := http.NewRequest("POST", reqURL, nil)
 	if err != nil {
@@ -140,7 +140,7 @@ type DeleteOptions struct {
 
 // Delete deletes an object.
 func (c *Client) Delete(ctx context.Context, uuid string, options *DeleteOptions) error {
-	reqURL := c.url(safePath("objects", uuid), nil)
+	reqURL := c.url(joinPath("objects", uuid), nil)
 
 	req, err := http.NewRequest("DELETE", reqURL, nil)
 	if err != nil {
@@ -175,7 +175,7 @@ type PurgeOptions struct {
 
 // Purge purges an object.
 func (c *Client) Purge(ctx context.Context, uuid string, options *PurgeOptions) error {
-	reqURL := c.url(safePath("objects", uuid, "purge"), nil)
+	reqURL := c.url(joinPath("objects", uuid, "purge"), nil)
 
 	req, err := http.NewRequest("POST", reqURL, nil)
 	if err != nil {
@@ -212,7 +212,7 @@ func (c *Client) GetFile(ctx context.Context, uuid string, filename string, vers
 		q.Set("version", strconv.FormatInt(version, 10))
 	}
 
-	res, err := c.fetch(ctx, safePath("objects", uuid, "files", filename), q)
+	res, err := c.fetch(ctx, joinPath("objects", uuid, "files", filename), q)
 	if c.metrics != nil && res != nil {
 		c.metrics.incStatusCode(ctx, "objects", res.StatusCode)
 	}
@@ -264,7 +264,7 @@ func (c *Client) ListFiles(ctx context.Context, uuid string, version int64) (*Fi
 	var list FileList
 
 	headers, err := c.getJSON(
-		ctx, safePath("objects", uuid, "files"), q, &list,
+		ctx, joinPath("objects", uuid, "files"), q, &list,
 		fetchWithResourceName("objects/files"),
 	)
 	if err != nil {
@@ -298,7 +298,7 @@ func (c *Client) ReplaceMetadataFile(ctx context.Context, req ReplaceMetadataReq
 		q.Set("batch", "true")
 	}
 
-	reqURL := c.url(safePath(
+	reqURL := c.url(joinPath(
 		"objects", req.UUID,
 		"files", "metadata", req.Filename,
 	), q)
@@ -343,7 +343,7 @@ type DeleteMetadataRequest struct {
 }
 
 func (c *Client) DeleteMetadataFile(ctx context.Context, req DeleteMetadataRequest) error {
-	reqURL := c.url(safePath(
+	reqURL := c.url(joinPath(
 		"objects", req.UUID,
 		"files", "metadata", req.Filename,
 	), nil)
@@ -381,7 +381,7 @@ func (c *Client) GetMetadataFile(ctx context.Context, uuid string, version int) 
 	}
 
 	res, err := c.fetch(
-		ctx, safePath("objects", uuid, "files", "metadata"),
+		ctx, joinPath("objects", uuid, "files", "metadata"),
 		q, fetchWithResourceName("metadata"))
 	if c.metrics != nil && res != nil {
 		c.metrics.incStatusCode(ctx, "metadata", res.StatusCode)
@@ -415,7 +415,7 @@ func (c *Client) Properties(ctx context.Context, uuid string, properties Propert
 	var res PropertyResult
 
 	_, err = c.getJSON(
-		ctx, safePath("objects", uuid, "properties"),
+		ctx, joinPath("objects", uuid, "properties"),
 		q, &res, fetchWithResourceName("objects/properties"))
 	if err != nil {
 		return nil, err
@@ -441,7 +441,7 @@ func (c *Client) PropertiesVersion(
 	var res PropertyResult
 
 	_, err = c.getJSON(
-		ctx, safePath("objects", uuid, "properties"),
+		ctx, joinPath("objects", uuid, "properties"),
 		q, &res, fetchWithResourceName("objects/properties"))
 	if err != nil {
 		return nil, err
@@ -454,7 +454,7 @@ func (c *Client) Head(ctx context.Context, uuid string) (int64, error) {
 	var q url.Values
 
 	resp, err := c.fetch(
-		ctx, safePath("objects", uuid), q,
+		ctx, joinPath("objects", uuid), q,
 		fetchWithMethod(http.MethodHead),
 	)
 	if err != nil {
@@ -490,7 +490,7 @@ type ExistsResponse struct {
 // information about the object.
 func (c *Client) CheckExists(ctx context.Context, uuid string) (*ExistsResponse, error) {
 	res, err := c.fetch(
-		ctx, safePath("objects", uuid), nil,
+		ctx, joinPath("objects", uuid), nil,
 		fetchWithMethod(http.MethodHead),
 	)
 	if err != nil {
