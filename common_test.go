@@ -2,7 +2,6 @@ package oc_test
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -68,8 +67,7 @@ func testHasEnv(t *testing.T, names ...string) {
 	}
 
 	if len(missing) > 0 {
-		t.Skip(fmt.Sprintf(
-			"the test needs the following environment variables to run: %s",
-			strings.Join(missing, ", ")))
+		t.Skipf("the test needs the following environment variables to run: %s",
+			strings.Join(missing, ", "))
 	}
 }

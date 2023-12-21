@@ -14,7 +14,7 @@ type Metrics struct {
 	OrgExtractor func(ctx context.Context) string
 }
 
-func DefaultOrganisationExtractor(ctx context.Context) string {
+func DefaultOrganisationExtractor(_ context.Context) string {
 	return "unknown"
 }
 
