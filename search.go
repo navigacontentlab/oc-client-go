@@ -8,7 +8,36 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 )
+
+type BoundaryType int
+
+const (
+	Inclusive BoundaryType = iota
+	Exclusive
+)
+
+func (ts BoundaryType) String() string {
+	switch ts {
+	case Inclusive:
+		return "inclusive"
+	case Exclusive:
+		return "exclusive"
+	default:
+		return "unknown"
+	}
+}
+
+type DateBoundary struct {
+	Type BoundaryType
+	Date *time.Time
+}
+
+type DateRange struct {
+	Start DateBoundary
+	End   DateBoundary
+}
 
 type SearchRequest struct {
 	IfNoneMatch string
@@ -24,6 +53,8 @@ type SearchRequest struct {
 	Deleted     bool
 	Facets      SearchFacets
 	Highlight   []string
+	Created     DateRange
+	Updated     DateRange
 }
 
 type SearchFacets struct {
@@ -241,6 +272,52 @@ func (sr *SearchRequest) QueryValues() (url.Values, error) {
 			"sort."+sort.IndexField+".ascending",
 			strconv.FormatBool(!sort.Descending),
 		)
+	}
+
+	// Handle created date range with inclusive/exclusive support
+	if sr.Created.Start.Date != nil {
+		paramName := "created.start"
+		if sr.Created.Start.Type == Inclusive {
+			paramName += "inclusive"
+		} else {
+			paramName += "exclusive"
+		}
+
+		q.Add(paramName, sr.Created.Start.Date.Format("2006-01-02T15:04:05Z"))
+	}
+
+	if sr.Created.End.Date != nil {
+		paramName := "created.end"
+		if sr.Created.End.Type == Inclusive {
+			paramName += "inclusive"
+		} else {
+			paramName += "exclusive"
+		}
+
+		q.Add(paramName, sr.Created.End.Date.Format("2006-01-02T15:04:05Z"))
+	}
+
+	// Handle updated date range with inclusive/exclusive support
+	if sr.Updated.Start.Date != nil {
+		paramName := "updated.start"
+		if sr.Updated.Start.Type == Inclusive {
+			paramName += "inclusive"
+		} else {
+			paramName += "exclusive"
+		}
+
+		q.Add(paramName, sr.Updated.Start.Date.Format("2006-01-02T15:04:05Z"))
+	}
+
+	if sr.Updated.End.Date != nil {
+		paramName := "updated.end"
+		if sr.Updated.End.Type == Inclusive {
+			paramName += "inclusive"
+		} else {
+			paramName += "exclusive"
+		}
+
+		q.Add(paramName, sr.Updated.End.Date.Format("2006-01-02T15:04:05Z"))
 	}
 
 	if len(sr.Facets.Fields) > 0 {
