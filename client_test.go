@@ -20,6 +20,7 @@ func TestAuthenticationMethod(t *testing.T) {
 
 		want := "Bearer a-test-token"
 		got := r.Header.Get("Authorization")
+
 		if got != want {
 			fail <- fmt.Errorf(
 				"unexpected authorization token value: want %q got %q",
