@@ -15,7 +15,7 @@ func TestOCResponseError__SurfaceErrorBody(t *testing.T) {
 	rec.WriteHeader(http.StatusBadRequest)
 	_, _ = rec.WriteString(ocMsg)
 
-	err := newResponseError(rec.Result()) //nolint:bodyclose
+	err := newResponseError(rec.Result())
 
 	if !strings.Contains(err.Error(), ocMsg) {
 		t.Errorf("expected the error message to contain the string %q, got %q",
@@ -34,7 +34,7 @@ func TestOCResponseError__IgnoreGarbage(t *testing.T) {
 	_ = rec.Body.WriteByte(0)
 	_, _ = rec.Body.WriteString("Post garbage")
 
-	err := newResponseError(rec.Result()) //nolint:bodyclose
+	err := newResponseError(rec.Result())
 
 	if !strings.HasSuffix(err.Error(), ocMsg) {
 		t.Errorf("expected the error message to end with the the string %q, got %q",

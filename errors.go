@@ -46,12 +46,14 @@ func (re *ResponseError) Error() string {
 	return "server responded with: " + re.Response.Status + ": " + re.message
 }
 
-func printableWithCap(data []byte, max int) string {
+func printableWithCap(data []byte, maxLength int) string {
 	var b strings.Builder
 
+	maxLen := maxLength
+
 	l := len(data)
-	if l > max {
-		l = max
+	if l > maxLen {
+		l = maxLen
 	}
 
 	b.Grow(l)
@@ -61,11 +63,11 @@ func printableWithCap(data []byte, max int) string {
 	for len(data) > 0 {
 		r, runeSize := utf8.DecodeRune(data)
 
-		if r == utf8.RuneError || !(unicode.IsPrint(r) || unicode.IsSpace(r)) {
+		if r == utf8.RuneError || (!unicode.IsPrint(r) && !unicode.IsSpace(r)) {
 			return b.String()
 		}
 
-		if size+runeSize > max {
+		if size+runeSize > maxLen {
 			return b.String()
 		}
 

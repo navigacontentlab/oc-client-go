@@ -3,7 +3,7 @@ package oc_test
 import (
 	"testing"
 
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func TestSuggestResponse_Unmarshal(t *testing.T) {

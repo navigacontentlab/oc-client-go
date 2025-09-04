@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func propShouldHaveSingleNonEmptyStringValue(t *testing.T, prop oc.Property) {
@@ -16,12 +16,14 @@ func propShouldHaveSingleNonEmptyStringValue(t *testing.T, prop oc.Property) {
 	if len(prop.Values) != 1 {
 		t.Errorf("the property %q should have 1 value, has %d",
 			prop.Name, len(prop.Values))
+
 		return
 	}
 
 	if prop.Values[0].Value == "" {
 		t.Errorf("the property %q should have a non empty string value",
 			prop.Name)
+
 		return
 	}
 }
@@ -33,6 +35,7 @@ func propShouldNotHaveNestedValues(t *testing.T, prop oc.Property) {
 		if prop.Values[i].NestedProperty != nil {
 			t.Errorf("the property %q should not have nested properties",
 				prop.Name)
+
 			return
 		}
 	}
@@ -48,6 +51,7 @@ func nestedValuesShouldMatch(
 		if v.NestedProperty == nil {
 			t.Errorf("the property %q should have nested properties",
 				prop.Name)
+
 			return
 		}
 
@@ -66,6 +70,7 @@ func propShouldNotHaveStringValues(t *testing.T, prop oc.Property) {
 		if prop.Values[i].Value != "" {
 			t.Errorf("the property %q should not have string values",
 				prop.Name)
+
 			return
 		}
 	}

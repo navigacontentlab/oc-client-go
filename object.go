@@ -117,12 +117,12 @@ type ConsistencyStatus struct {
 // and index.
 func (c *Client) ConsistencyCheck(ctx context.Context, uuid string) (*ConsistencyStatus, error) {
 	var status ConsistencyStatus
+
 	_, err := c.getJSON(
 		ctx,
 		"objects/"+uuid+"/consistency-check",
 		nil, &status,
 	)
-
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func TestRetrieveUploadVersion(t *testing.T) {
@@ -21,12 +21,12 @@ func TestRetrieveUploadVersion(t *testing.T) {
 	}{
 		{
 			"without version",
-			func(w http.ResponseWriter, r *http.Request) {},
+			func(_ http.ResponseWriter, _ *http.Request) {},
 			0,
 		}, // version defaults to 0
 		{
 			"with version",
-			func(w http.ResponseWriter, r *http.Request) {
+			func(w http.ResponseWriter, _ *http.Request) {
 				w.Header().Add("X-OpenContent-object-version", "42")
 			},
 			42,
@@ -101,7 +101,6 @@ func ExampleClient_Upload() {
 	}
 
 	_, err = client.Upload(ctx, uploadReq)
-
 	if err != nil {
 		fmt.Println(err)
 	}

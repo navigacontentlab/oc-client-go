@@ -4,12 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"testing"
 
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func ExampleClient_Search() {
@@ -136,6 +135,7 @@ func TestSearchResponse__Unmarshal__Multi(t *testing.T) {
 	if len(uuids) != len(expect) {
 		t.Errorf("missing unexpected number of ArticleMetaImageUuids, want %d, got %d",
 			len(expect), len(uuids))
+
 		return
 	}
 
@@ -170,7 +170,7 @@ func loadTestData(t *testing.T, name string, v interface{}) {
 
 	path := "test/" + name
 
-	data, err := ioutil.ReadFile(path)
+	data, err := os.ReadFile(path) // #nosec G304
 	if err != nil {
 		t.Fatalf("failed to read test data from %q: %v", path, err)
 	}

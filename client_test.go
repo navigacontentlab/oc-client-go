@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func TestAuthenticationMethod(t *testing.T) {
@@ -15,7 +15,7 @@ func TestAuthenticationMethod(t *testing.T) {
 
 	fail := make(chan error, 1)
 
-	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	ts := httptest.NewServer(http.HandlerFunc(func(_ http.ResponseWriter, r *http.Request) {
 		defer close(fail)
 
 		want := "Bearer a-test-token"

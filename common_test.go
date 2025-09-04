@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/Masterminds/semver"
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func clientFromEnvironment(t *testing.T) *oc.Client {

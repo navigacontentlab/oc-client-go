@@ -5,7 +5,6 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"net/textproto"
@@ -73,8 +72,12 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 	var res UploadResponse
 
 	go func() {
-		defer writer.Close()
-		defer pipeIn.Close()
+		defer func(writer *multipart.Writer) {
+			_ = writer.Close()
+		}(writer)
+		defer func(pipeIn *io.PipeWriter) {
+			_ = pipeIn.Close()
+		}(pipeIn)
 
 		fields := mimeFields{
 			"source": req.Source,
@@ -124,7 +127,10 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 			}
 		}
 
-		writer.Close()
+		err = writer.Close()
+		if err != nil {
+			return
+		}
 	}()
 
 	go func() {
@@ -151,7 +157,6 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 		}
 
 		resp, err := c.httpClient.Do(r)
-
 		if err != nil {
 			errChan <- err
 			return
@@ -166,7 +171,7 @@ func (c *Client) Upload(ctx context.Context, req UploadRequest) (*UploadResponse
 		if resp.StatusCode >= 200 && resp.StatusCode <= 299 {
 			res.ETag = resp.Header.Get("Etag")
 
-			uuidBytes, err := ioutil.ReadAll(resp.Body)
+			uuidBytes, err := io.ReadAll(resp.Body)
 			if err != nil {
 				c.logger.Logf("failed to read response UUID for upload: %w", err)
 			}

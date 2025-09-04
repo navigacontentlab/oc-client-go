@@ -6,7 +6,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
@@ -98,7 +97,7 @@ type requestInfo struct {
 }
 
 func fetchWithAccept(accept string) fetchOption {
-	return func(req *http.Request, info *requestInfo) {
+	return func(req *http.Request, _ *requestInfo) {
 		req.Header.Set("Accept", accept)
 	}
 }
@@ -108,19 +107,19 @@ func fetchWithAcceptJSON() fetchOption {
 }
 
 func fetchWithNoneMatch(etag string) fetchOption {
-	return func(req *http.Request, info *requestInfo) {
+	return func(req *http.Request, _ *requestInfo) {
 		req.Header.Set("If-None-Match", etag)
 	}
 }
 
 func fetchWithResourceName(name string) fetchOption {
-	return func(req *http.Request, info *requestInfo) {
+	return func(_ *http.Request, info *requestInfo) {
 		info.mainResource = name
 	}
 }
 
 func fetchWithMethod(method string) fetchOption {
-	return func(req *http.Request, info *requestInfo) {
+	return func(req *http.Request, _ *requestInfo) {
 		req.Method = method
 	}
 }
@@ -230,7 +229,7 @@ func joinPath(segments ...string) string {
 }
 
 func discardAndClose(rc io.ReadCloser) error {
-	_, err := io.Copy(ioutil.Discard, rc)
+	_, err := io.Copy(io.Discard, rc)
 	if err != nil {
 		return fmt.Errorf(
 			"failed to drain reader: %w",
@@ -268,7 +267,7 @@ func (c *Client) GetVersion(ctx context.Context) (string, error) {
 		return "", newResponseError(res)
 	}
 
-	versionData, err := ioutil.ReadAll(res.Body)
+	versionData, err := io.ReadAll(res.Body)
 	if err != nil {
 		return "", fmt.Errorf("failed to read response data: %w", err)
 	}

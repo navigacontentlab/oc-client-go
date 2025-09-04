@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/navigacontentlab/oc-client-go"
+	oc "github.com/navigacontentlab/oc-client-go/v2"
 )
 
 func TestClient_Get(t *testing.T) {
