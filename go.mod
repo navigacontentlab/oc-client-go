@@ -1,6 +1,6 @@
 module github.com/navigacontentlab/oc-client-go/v2
 
-go 1.22.12
+go 1.22.3
 
 require (
 	github.com/Masterminds/semver v1.5.0
