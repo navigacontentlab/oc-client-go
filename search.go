@@ -247,7 +247,7 @@ func (sr *SearchRequest) QueryValues() (url.Values, error) {
 	q.Add("limit", strconv.Itoa(sr.Limit))
 
 	if sr.Property != "" {
-		q.Add("property", sr.Properties)
+		q.Add("property", sr.Property)
 	}
 
 	if sr.Properties != "" {
