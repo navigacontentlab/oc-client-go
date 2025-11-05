@@ -171,7 +171,7 @@ func (c *Client) fetch(
 	return resp, nil
 }
 
-func (c *Client) getJSON(
+func (c *Client) GetJSON(
 	ctx context.Context, resource string, q url.Values, result interface{}, opts ...fetchOption,
 ) (http.Header, error) {
 	opts = append(opts, fetchWithAcceptJSON())

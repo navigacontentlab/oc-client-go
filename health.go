@@ -46,7 +46,7 @@ func (c *Client) Health(ctx context.Context, req HealthRequest) (Health, error) 
 
 	var health Health
 
-	_, err := c.getJSON(ctx, "health", q, &health)
+	_, err := c.GetJSON(ctx, "health", q, &health)
 	if err != nil {
 		return health, err
 	}

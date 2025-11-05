@@ -32,7 +32,7 @@ func (c *Client) Eventlog(ctx context.Context, event int) ([]EventlogEvent, erro
 
 	var events eventlogEvents
 
-	_, err := c.getJSON(ctx, "eventlog", q, &events)
+	_, err := c.GetJSON(ctx, "eventlog", q, &events)
 	if err != nil {
 		return nil, err
 	}

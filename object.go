@@ -118,7 +118,7 @@ type ConsistencyStatus struct {
 func (c *Client) ConsistencyCheck(ctx context.Context, uuid string) (*ConsistencyStatus, error) {
 	var status ConsistencyStatus
 
-	_, err := c.getJSON(
+	_, err := c.GetJSON(
 		ctx,
 		"objects/"+uuid+"/consistency-check",
 		nil, &status,
@@ -263,7 +263,7 @@ func (c *Client) ListFiles(ctx context.Context, uuid string, version int64) (*Fi
 
 	var list FileList
 
-	headers, err := c.getJSON(
+	headers, err := c.GetJSON(
 		ctx, joinPath("objects", uuid, "files"), q, &list,
 		fetchWithResourceName("objects/files"),
 	)
@@ -414,7 +414,7 @@ func (c *Client) Properties(ctx context.Context, uuid string, properties Propert
 
 	var res PropertyResult
 
-	_, err = c.getJSON(
+	_, err = c.GetJSON(
 		ctx, joinPath("objects", uuid, "properties"),
 		q, &res, fetchWithResourceName("objects/properties"))
 	if err != nil {
@@ -440,7 +440,7 @@ func (c *Client) PropertiesVersion(
 
 	var res PropertyResult
 
-	_, err = c.getJSON(
+	_, err = c.GetJSON(
 		ctx, joinPath("objects", uuid, "properties"),
 		q, &res, fetchWithResourceName("objects/properties"))
 	if err != nil {
